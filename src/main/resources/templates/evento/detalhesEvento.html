@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- HTML 4 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- HTML5 -->
+<meta charset="utf-8"/>
+
+<head>
+	<title>Eventos App</title>
+	 
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<link rel="stylesheet" href="style/style.css"/>
+	
+</head>
+<body>
+	<header>
+		 <nav>
+    		<div class="nav-wrapper">
+      			<a href="#" class="brand-logo">Eventos</a>
+      			<ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/index" class="waves-effect waves-light btn">Home</a></li>
+			        <li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">navigate_before</i>Lista de Eventos</a></li>
+			    </ul>
+    		</div>
+  		</nav>
+	</header>
+	
+	<p>
+	<div th:each="evento : ${eventos}" class="container detalhesEvento">
+		<div class="row">
+			<p>Evento: <span th:text="${evento.nome}"></span></p>
+			<p>Local: <span th:text="${evento.local}"></span></p>
+			<p>Data: <span th:text="${evento.data}"></span></p>
+			<p>Horário: <span th:text="${evento.horario}"></span></p>
+		</div>
+	</div>
+		
+		<th:block th:include="evento/mensagemValidation"></th:block>
+		
+	<p>
+	<div class="container formConvidado">		
+		<form method="post">
+			<h6><b>Cadastro de Convidados:</b></h6>
+			<p>Nome: <input type="text" value=""	name="nome" placeholder="Nome Completo"/></p>
+			<p>Telefone: <input type="text" value=""	name="telefone" placeholder="11 9 9999-9999"/></p>
+			<button class="waves-effect waves-light btn" type="submit">Adicionar</button> 
+		</form>		
+	</div>
+	
+	<p>
+	<div class="container formConvidados">
+	<h5>Lista de Convidados: </h5>
+		
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Telefone</th>
+				<th>Deletar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="convidado : ${convidados}">
+				<td><span th:text=${convidado.nome}></span></td>
+				<td><span th:text=${convidado.telefone}></span></td>
+				<td><a th:href="@{'/apagarConvidado?codigo=' + ${eventos.codigo} + '&codigoConvidado=' + ${convidado.codigo}}"><i class="material-icons left">delete</i></a></td>
+ </tr>
+		</tbody>
+	</table>
+	<p>
+	</div>
+	<p>
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+</html>	  
