@@ -1,0 +1,8 @@
+com\eventosapp\controllers\IndexController.class
+com\eventosapp\models\Evento.class
+com\eventosapp\controllers\EventoController.class
+com\eventosapp\DataConfiguration.class
+com\eventosapp\NewProjectApplication.class
+com\eventosapp\models\Convidado.class
+com\eventosapp\repository\EventoRepository.class
+com\eventosapp\repository\ConvidadoRepository.class
