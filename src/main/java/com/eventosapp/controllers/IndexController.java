@@ -10,4 +10,9 @@ public class IndexController {
 	public String index() {
 		return "evento/index";
 	}
+	
+	@RequestMapping("/")
+	public String home() {
+		return "evento/index";
+	}
 }

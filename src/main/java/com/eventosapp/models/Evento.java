@@ -19,9 +19,10 @@ public class Evento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
-
+	
 	@NotNull(message="Campo não pode ser vazio")
 	@Size(min=2, max=100, message="No minimo 2 letras")
 	private String nome;

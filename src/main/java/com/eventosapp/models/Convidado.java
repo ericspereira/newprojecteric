@@ -11,7 +11,8 @@ import javax.validation.constraints.Size;
 public class Convidado {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
 	
 	@NotNull(message="Campo não pode ser vazio")
@@ -21,6 +22,9 @@ public class Convidado {
 	@NotNull(message="Campo não pode ser vazio")
 	@Size(min=2, max=100, message="No minimo 2 letras")
 	private String telefone;
+	
+//	@ManyToOne
+//	private Evento evento;
 		
 	public String getNome() {
 		return nome;
